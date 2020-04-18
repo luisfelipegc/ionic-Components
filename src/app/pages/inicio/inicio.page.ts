@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Components } from '../../interfaces/interfaces';
+import { Observable } from 'rxjs';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,82 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  componentes: Components[] = [
-    {
-      icon: 'analytics',
-      name: 'Action Sheet',
-      redirectTo: '/action-sheet'
-    },
-    {
-      icon: 'alert',
-      name: 'Alert',
-      redirectTo: '/alert'
-    },
-    {
-      icon: 'beaker',
-      name: 'Avatar',
-      redirectTo: '/avatar'
-    },
-    {
-      icon: 'radio-button-on',
-      name: 'Botones y router',
-      redirectTo: '/botones'
-    },
-    {
-      icon: 'card',
-      name: 'Cards',
-      redirectTo: '/card'
-    },
-    {
-      icon: 'checkmark-circle-outline',
-      name: 'Checkbox',
-      redirectTo: '/check'
-    },
-    {
-      icon: 'calendar',
-      name: 'Date-time',
-      redirectTo: '/date-time'
-    },
-    {
-      icon: 'car',
-      name: 'Fabs',
-      redirectTo: '/fab'
-    },
-    {
-      icon: 'grid',
-      name: 'Grid - Rows',
-      redirectTo: '/grid'
-    },
-    {
-      icon: 'hammer',
-      name: 'Inputs - Forms',
-      redirectTo: '/input'
-    },
-    {
-      icon: 'list',
-      name: 'List - Sliding',
-      redirectTo: '/list'
-    },
-    {
-      icon: 'apps-outline',
-      name: 'List - Reorder',
-      redirectTo: '/list-reorder'
-    },
-    {
-      icon: 'refresh-circle',
-      name: 'Loading',
-      redirectTo: '/loading'
-    }
-  ];
+  componentes: Observable<Components[]>;
 
-  constructor() { }
+  constructor(private menuCtrl: MenuController, private dataService: DataService) { }
 
   ngOnInit() {
+    this.componentes = this.dataService.getMenuOptions();
   }
-}
 
-interface Components {
-  icon: string;
-  name: string;
-  redirectTo: string;
+  toggleMenu() {
+    this.menuCtrl.toggle();
+  }
 }

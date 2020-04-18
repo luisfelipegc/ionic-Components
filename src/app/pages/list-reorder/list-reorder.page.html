@@ -1,0 +1,19 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons defaultHref="/" slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>List - Reorder</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-reorder-group (ionItemReorder)="doReorder($event)" [disabled]="false">
+            <ion-item *ngFor="let pj of personajes">
+                <ion-label>{{pj}}</ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+            </ion-item>
+        </ion-reorder-group>
+    </ion-list>
+</ion-content>

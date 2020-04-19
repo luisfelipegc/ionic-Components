@@ -82,5 +82,10 @@
         "icon": "leaf-outline",
         "name": "Refresher",
         "redirectTo": "/refresher"
+    },
+    {
+        "icon": "search",
+        "name": "Search",
+        "redirectTo": "/serachbar"
     }
 ]

@@ -82,6 +82,10 @@ const routes: Routes = [
   {
     path: 'serachbar',
     loadChildren: () => import('./pages/serachbar/serachbar.module').then( m => m.SerachbarPageModule)
+  },
+  {
+    path: 'segment',
+    loadChildren: () => import('./pages/segment/segment.module').then( m => m.SegmentPageModule)
   }
 ];
 

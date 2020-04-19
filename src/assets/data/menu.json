@@ -77,5 +77,10 @@
         "icon": "code-working",
         "name": "Progress Bar",
         "redirectTo": "/progress-bar"
+    },
+    {
+        "icon": "leaf-outline",
+        "name": "Refresher",
+        "redirectTo": "/refresher"
     }
 ]
